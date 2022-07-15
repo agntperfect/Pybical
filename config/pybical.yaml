@@ -1,0 +1,7 @@
+# Version of packages and applications
+# This will create automatic from system setup
+# Register to control the system like adminpanel, environment variable, etc
+Data_connector: "data.pybical.yaml"
+web_config: "web.pybical.yaml"
+author: "" 
+domain: "" #automatic

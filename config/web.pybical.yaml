@@ -1,0 +1,5 @@
+# Web configuraton
+# This will create automatic from system setup
+
+Routing: "Routing.json"
+Virtual: "Virtual.path.json"
