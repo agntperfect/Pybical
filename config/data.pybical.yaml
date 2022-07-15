@@ -1,0 +1,15 @@
+# Here the connection with database & API are working
+# This will create automatic from system setup
+Database_status: "OFF" # ON / OFF
+Database_app: "MongoDB"
+Database_name: ""
+Database_hostname: ""
+Database_port: ""
+Database_username: ""
+Database_password: ""
+
+socket_status: "" # ON / OFF / AUTO
+socket_server: "default" # Default / Foriegn
+socket_hostname: "" # Default hostname: "localhost"
+socket_ip: "" # Default socket ip: 127.0.0.1 || {local_ip_address}
+socket_port: "" # Default machine port: 1289

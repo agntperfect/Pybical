@@ -1,28 +1,16 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import datetime
+import time
+from http.server import HTTPServer
+from server.httpserver import NeuralHTTP
 
-HOST = "127.0.0.1"
+HOST_NAME = 'localhost'
 PORT = 80
 
-class NeuralHTTP(BaseHTTPRequestHandler):
-
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/html")
-        self.end_headers()
-
-        self.wfile.write(bytes("<html><head><title>Hello World!</title></head><body><h1>Hello World!</h1></body></html>", "utf-8"))
-    
-    def do_POST(self):
-        self.send_response(200)
-        self.send_header("Content-type",  "application/JSON")
-        self.end_headers()
-
-        x = datetime.datetime.now()
-        self.wfile.write(bytes("{'date': '"+ str(x) +"'}\n", "utf-8"))
-
-server = HTTPServer((HOST, PORT), NeuralHTTP)
-print("Server now running...")
-server.serve_forever()
-server.server_close()
-print("Server close...")
+if __name__ == "__main__":
+    httpd = HTTPServer((HOST_NAME,PORT),NeuralHTTP)
+    print(time.asctime(), "Start Server - %s:%s"%(HOST_NAME,PORT))
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        httpd.server_close()
+        print('\n',time.asctime(),'Stop Server - %s:%s' %(HOST_NAME,PORT))
+        pass
